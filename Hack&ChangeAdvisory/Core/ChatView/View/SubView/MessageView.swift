@@ -22,8 +22,7 @@ struct MessageView_Previews: PreviewProvider {
             MessageView(message: Mocks.messages.first!, isSender: true)
             MessageView(message: Mocks.messages.first!, isSender: false)
         }
-       
-            .padding()
+        .padding()
     }
 }
 
@@ -42,13 +41,13 @@ extension MessageView{
             }
             .padding(10)
             .padding(.horizontal, 5)
-            .foregroundColor(isSender ? .black : .white)
-            .background(isSender ? Color.accentBg : Color.accentColor)
+            .foregroundColor(isSender ? .white : .black)
+            .background(isSender ? Color.accentColor : Color.accentBg)
             .clipShape(RoundedRectangle(cornerRadius: 8))
-            .frame(width: getRect().width / 2, alignment: isSender ? .leading : .trailing)
-            .padding(.vertical, 4)
+            .frame(width: getRect().width / 2, alignment: isSender ? .trailing : .leading)
+            .padding(.vertical, 2)
         }
-        .frame(maxWidth: .infinity, alignment: isSender ? .leading : .trailing)
+        .frame(maxWidth: .infinity, alignment: isSender ? .trailing : .leading)
     }
 }
 

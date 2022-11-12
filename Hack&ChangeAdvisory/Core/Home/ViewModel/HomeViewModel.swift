@@ -28,6 +28,7 @@ final class HomeViewModel: ObservableObject{
                 NetworkController.share.handlingCompletion(completion: completion)
             } receiveValue: { user in
                 self.currentUser = user
+                self.userManager.currentUser = user
             }
             .store(in: &cancellable)
     }

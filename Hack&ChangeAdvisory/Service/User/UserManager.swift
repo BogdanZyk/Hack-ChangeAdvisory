@@ -12,6 +12,7 @@ final class UserManager: ObservableObject{
     
     static let share = UserManager()
     let defaults = UserDefaults.standard
+    @Published var currentUser: User?
     
     var userRole: String = ""
     

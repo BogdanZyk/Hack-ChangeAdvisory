@@ -117,7 +117,7 @@ extension ChatView{
     private var messagesSection: some View{
         LazyVStack(spacing: 0) {
             ForEach(chatVM.chatMessages){ message in
-               MessageView(message: message, isSender: false)
+                MessageView(message: message, isSender: UserManager.share.currentUser?.userId == message.sender)
             }
             .padding(.vertical, 4)
         }

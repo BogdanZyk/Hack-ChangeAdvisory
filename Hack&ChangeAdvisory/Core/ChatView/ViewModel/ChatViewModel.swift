@@ -17,7 +17,6 @@ final class ChatViewModel: ObservableObject{
     let webSoketStream: WebSocketStream
     
     @Published var chatText: String = ""
-    @Published var messageReceive: Int = 0
     @Published var chatMessages = [Message]()
     @Published var showLoader: Bool = false
     
@@ -53,7 +52,6 @@ extension ChatViewModel{
                         guard let serverData = try? SocketMessageModel.decode(from: data) else {return}
                         DispatchQueue.main.async {
                             self.chatMessages.append(serverData.messageData)
-                            self.messageReceive += 1
                         }
                     default:
                         break
