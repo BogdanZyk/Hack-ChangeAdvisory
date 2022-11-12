@@ -28,6 +28,13 @@
 		5A5E8F66291F2383002F3395 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F65291F2383002F3395 /* HomeViewModel.swift */; };
 		5A5E8F69291F2BC5002F3395 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F68291F2BC5002F3395 /* MainView.swift */; };
 		5A5E8F6E291F2C1A002F3395 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F6D291F2C1A002F3395 /* ChatView.swift */; };
+		5A5E8F72291FADE4002F3395 /* ReversedSrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F71291FADE4002F3395 /* ReversedSrollView.swift */; };
+		5A5E8F75291FAE76002F3395 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F74291FAE76002F3395 /* ChatViewModel.swift */; };
+		5A5E8F77291FB117002F3395 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F76291FB117002F3395 /* MessageView.swift */; };
+		5A5E8F79291FB1FD002F3395 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F78291FB1FD002F3395 /* Message.swift */; };
+		5A5E8F7C291FB668002F3395 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F7B291FB668002F3395 /* Mocks.swift */; };
+		5A5E8F7F291FC2EF002F3395 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F7E291FC2EF002F3395 /* ChatService.swift */; };
+		5A5E8F81291FC381002F3395 /* WebSocketStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F80291FC380002F3395 /* WebSocketStream.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +60,13 @@
 		5A5E8F65291F2383002F3395 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5A5E8F68291F2BC5002F3395 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5A5E8F6D291F2C1A002F3395 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		5A5E8F71291FADE4002F3395 /* ReversedSrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversedSrollView.swift; sourceTree = "<group>"; };
+		5A5E8F74291FAE76002F3395 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		5A5E8F76291FB117002F3395 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		5A5E8F78291FB1FD002F3395 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		5A5E8F7B291FB668002F3395 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		5A5E8F7E291FC2EF002F3395 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		5A5E8F80291FC380002F3395 /* WebSocketStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketStream.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +113,7 @@
 		5A5E8F30291EFDDE002F3395 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				5A5E8F7A291FB65E002F3395 /* Moks */,
 				5A5E8F31291EFDDE002F3395 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -136,6 +151,7 @@
 		5A5E8F3E291EFF09002F3395 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				5A5E8F7D291FC2E3002F3395 /* Chat */,
 				5A5E8F45291F0621002F3395 /* User */,
 				5A5E8F40291F007C002F3395 /* Network */,
 			);
@@ -148,6 +164,7 @@
 				5A5E8F41291F0136002F3395 /* NetworkControllerProtocol.swift */,
 				5A5E8F43291F019A002F3395 /* NetworkController.swift */,
 				5A5E8F48291F09D4002F3395 /* Endpoint.swift */,
+				5A5E8F80291FC380002F3395 /* WebSocketStream.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -218,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				5A5E8F63291F216A002F3395 /* User.swift */,
+				5A5E8F78291FB1FD002F3395 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +260,7 @@
 		5A5E8F6B291F2C0D002F3395 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5A5E8F74291FAE76002F3395 /* ChatViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -249,9 +268,35 @@
 		5A5E8F6C291F2C12002F3395 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5A5E8F70291FADCD002F3395 /* SubView */,
 				5A5E8F6D291F2C1A002F3395 /* ChatView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5A5E8F70291FADCD002F3395 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				5A5E8F71291FADE4002F3395 /* ReversedSrollView.swift */,
+				5A5E8F76291FB117002F3395 /* MessageView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		5A5E8F7A291FB65E002F3395 /* Moks */ = {
+			isa = PBXGroup;
+			children = (
+				5A5E8F7B291FB668002F3395 /* Mocks.swift */,
+			);
+			path = Moks;
+			sourceTree = "<group>";
+		};
+		5A5E8F7D291FC2E3002F3395 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				5A5E8F7E291FC2EF002F3395 /* ChatService.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,10 +374,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A5E8F6E291F2C1A002F3395 /* ChatView.swift in Sources */,
+				5A5E8F75291FAE76002F3395 /* ChatViewModel.swift in Sources */,
 				5A5E8F66291F2383002F3395 /* HomeViewModel.swift in Sources */,
 				5A5E8F69291F2BC5002F3395 /* MainView.swift in Sources */,
 				5A5E8F5B291F1B1F002F3395 /* View.swift in Sources */,
 				5A5E8F55291F1944002F3395 /* PrimaryTextField.swift in Sources */,
+				5A5E8F77291FB117002F3395 /* MessageView.swift in Sources */,
+				5A5E8F7C291FB668002F3395 /* Mocks.swift in Sources */,
+				5A5E8F7F291FC2EF002F3395 /* ChatService.swift in Sources */,
 				5A5E8F5D291F1E10002F3395 /* UserManager.swift in Sources */,
 				5A5E8F61291F1FB3002F3395 /* HomeView.swift in Sources */,
 				5A5E8F64291F216A002F3395 /* User.swift in Sources */,
@@ -341,7 +390,10 @@
 				5A5E8F2D291EFDDD002F3395 /* ContentView.swift in Sources */,
 				5A5E8F47291F062B002F3395 /* UserServices.swift in Sources */,
 				5A5E8F59291F1AD4002F3395 /* PrimaryButtonView.swift in Sources */,
+				5A5E8F81291FC381002F3395 /* WebSocketStream.swift in Sources */,
+				5A5E8F72291FADE4002F3395 /* ReversedSrollView.swift in Sources */,
 				5A5E8F52291F11FD002F3395 /* LoginView.swift in Sources */,
+				5A5E8F79291FB1FD002F3395 /* Message.swift in Sources */,
 				5A5E8F42291F0136002F3395 /* NetworkControllerProtocol.swift in Sources */,
 				5A5E8F49291F09D4002F3395 /* Endpoint.swift in Sources */,
 				5A5E8F4C291F0F89002F3395 /* LoginViewModel.swift in Sources */,

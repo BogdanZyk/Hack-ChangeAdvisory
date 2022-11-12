@@ -14,6 +14,18 @@ struct Endpoint {
 
 /// API specific Endpoint extension
 extension Endpoint {
+    
+    var webSocketUrl: URL{
+        var components = URLComponents()
+        components.scheme = "wss"
+        components.host = "hack.invest-open.ru"
+        components.path = "/chat"
+        guard let url = components.url else {
+            preconditionFailure("Invalid URL components: \(components)")
+        }
+        return url
+    }
+    
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"
@@ -24,7 +36,6 @@ extension Endpoint {
         guard let url = components.url else {
             preconditionFailure("Invalid URL components: \(components)")
         }
-        
         return url
     }
     
@@ -42,11 +53,26 @@ extension Endpoint {
 
 /// API endpoints
 extension Endpoint {
-   
+    
+    
+    static var sentMessage: Self{
+        return Endpoint(path: "/message/send")
+    }
+    
+    static func dealogHistory(dialogId: Int, limit: Int) -> Self{
+        return Endpoint(path: "/chat/history",
+                        queryItems: [URLQueryItem(name: "dialogId", value: "\(dialogId)"),
+                                     URLQueryItem(name: "limit", value: "\(limit)")])
+    }
+    
+    static var dialog: Self{
+        return Endpoint(path: "/chat/dialog")
+    }
+    
     static func currentUser() -> Self {
         return Endpoint(path: "/user/info")
     }
-   
+    
     static func userForId(id: Int) -> Self {
         return Endpoint(path: "/user/info",
                         queryItems: [URLQueryItem(name: "userId", value: "\(id)")])

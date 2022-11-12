@@ -24,6 +24,13 @@ final class NetworkController: NetworkControllerProtocol {
             .eraseToAnyPublisher()
     }
     
+    func update(urlRequest: URLRequest) -> AnyPublisher<Data, Error> {
+        return URLSession.shared.dataTaskPublisher(for: urlRequest)
+            .tryMap { try self.handleURLResponse(output: $0, url: urlRequest.url!)}
+            .retry(2)
+            .eraseToAnyPublisher()
+    }
+    
 }
 
 

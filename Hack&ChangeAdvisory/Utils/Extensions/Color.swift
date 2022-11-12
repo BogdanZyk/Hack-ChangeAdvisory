@@ -13,4 +13,5 @@ extension Color{
     static let foreground = Color("foreground")
     static let foreground2 = Color("foreground2")
     static let foreground3 = Color("foreground3")
+    static let accentBg = Color("AccentBg")
 }

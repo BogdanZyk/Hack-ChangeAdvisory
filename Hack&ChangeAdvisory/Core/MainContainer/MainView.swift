@@ -15,9 +15,9 @@ struct MainView: View {
             .tabItem{Text("home")}
             .tag(Tab.home)
             
-            ChatView()
-            .tabItem{Text("chat")}
-            .tag(Tab.chat)
+//            ChatView()
+//            .tabItem{Text("chat")}
+//            .tag(Tab.chat)
         }
         .background(Color.bg)
     }
