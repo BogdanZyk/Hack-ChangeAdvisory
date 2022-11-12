@@ -103,7 +103,6 @@ extension ChatViewModel{
                 }
             } receiveValue: { response in
                 self.chatMessages = response.messages
-                print(response.messages)
             }
             .store(in: &cancellable)
     }
