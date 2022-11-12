@@ -32,9 +32,10 @@ extension Endpoint {
         "Content-Type": "application/json"
     ]
     
-    static func buildHeaders(key: String, value: String) -> [String: String] {
+    
+    static func buildHeaders() -> [String: String] {
         var headers = defaultHeaders
-        headers[key] = value
+        headers["Authorization"] = "Bearer \(UserDefaults.standard.string(forKey: "JWT") ?? "")"
         return headers
     }
 }
@@ -42,9 +43,11 @@ extension Endpoint {
 /// API endpoints
 extension Endpoint {
    
-    
+    static func currentUser() -> Self {
+        return Endpoint(path: "/user/info")
+    }
    
-    static func user(id: Int) -> Self {
+    static func userForId(id: Int) -> Self {
         return Endpoint(path: "/user/info",
                         queryItems: [URLQueryItem(name: "userId", value: "\(id)")])
     }

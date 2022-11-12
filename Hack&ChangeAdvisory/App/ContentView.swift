@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var userManager = UserManager.share
     var body: some View {
-        LoginView()
+        if userManager.isLoggin{
+            HomeView()
+        }else{
+            LoginView()
+        }
     }
 }
 

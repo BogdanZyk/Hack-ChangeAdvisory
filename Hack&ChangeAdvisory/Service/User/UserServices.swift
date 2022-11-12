@@ -11,6 +11,8 @@ import Combine
 
 protocol UserServicesProtocol{
     func logIn(_ auth: UserAuth) -> AnyPublisher<UserResponse, Error>
+    func getCurrentUser()-> AnyPublisher<User, Error>
+    func getUserForId(_ id: Int) -> AnyPublisher<User, Error>
 }
 
 final class UserServices: UserServicesProtocol {
@@ -31,20 +33,24 @@ final class UserServices: UserServicesProtocol {
         return networkManager.get(type: UserResponse.self, urlRequest: request)
     }
     
+    func getCurrentUser() -> AnyPublisher<User, Error>{
+        let endpoint = Endpoint.currentUser()
+        var request = URLRequest(url: endpoint.url)
+        request.allHTTPHeaderFields = Endpoint.buildHeaders()
+        return networkManager.get(type: User.self, urlRequest: request)
+    }
+    
+    func getUserForId(_ id: Int) -> AnyPublisher<User, Error>{
+        let endpoint = Endpoint.userForId(id: id)
+        var request = URLRequest(url: endpoint.url)
+        request.allHTTPHeaderFields = Endpoint.buildHeaders()
+        return networkManager.get(type: User.self, urlRequest: request)
+    }
+    
+    
 }
 
 
-struct UserResponse: Codable{
-    var userId: Int
-    var login: String
-    var role: String
-    var jwtToken: String
-}
-
-struct UserAuth: Codable{
-    var login: String
-    var password: String
-}
 
 
 
