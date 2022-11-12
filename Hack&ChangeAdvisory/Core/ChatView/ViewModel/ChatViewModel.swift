@@ -12,6 +12,7 @@ import SwiftUI
 
 final class ChatViewModel: ObservableObject{
     
+    let userService: UserServiceProtocol
     let chatService: ChatServiceProtocol
     let userManager = UserManager.share
     let webSoketStream: WebSocketStream
@@ -19,13 +20,21 @@ final class ChatViewModel: ObservableObject{
     @Published var chatText: String = ""
     @Published var chatMessages = [Message]()
     @Published var showLoader: Bool = false
+    @Published var imageData: [UIImageData]?
+    @Published var recipientUser: User?
+    @Published var chatMode: ChatViewMod = .client
     
-    var dialogId: Int?
+    private var dialogId: Int?
     private var cancellable = Set<AnyCancellable>()
    
     
-    init(chatService: ChatServiceProtocol = ChatService()){
+    init(chatService: ChatServiceProtocol = ChatService(),
+         userService: UserServiceProtocol = UserService()){
+        
         self.chatService = chatService
+        self.userService = userService
+        self.chatMode = userManager.userRole == .operator ? .operator : .client
+        
         
         let endpoint = Endpoint.init(path: "")
         var request = URLRequest(url: endpoint.webSocketUrl)
@@ -74,7 +83,6 @@ extension ChatViewModel{
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion{
-                    
                 case .finished:
                     self.showLoader = false
                 case .failure(let error):
@@ -101,26 +109,51 @@ extension ChatViewModel{
                 }
             } receiveValue: { response in
                 self.chatMessages = response.messages
+                if self.recipientUser == nil{
+                    self.fethchRecipientUser()
+                }
             }
             .store(in: &cancellable)
     }
     
     func sendMessage(){
         guard let dialogId = dialogId else {return}
-        let request = MessageRequest(message: .init(dialogId: dialogId, text: chatText, messageType: MessageType.text.rawValue))
+        ImageUploader.uploadImage(withImage: imageData?.first?.image) {[weak self] mediaUrl in
+            guard let self = self else {return}
+            let request = MessageRequest(message: .init(dialogId: dialogId, text: self.chatText, messageType: MessageType.text.getType(image: mediaUrl).rawValue, mediaUrl: mediaUrl))
+            print(mediaUrl)
+            self.sendMessageWithRequest(request: request)
+        }
+    }
+    
+    private func sendMessageWithRequest(request: MessageRequest){
         chatService.sendMessage(request)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion{
-                    
                 case .finished:
                     print("SEND MESSAGE")
                     self.chatText = ""
+                    self.deleteImage()
                 case .failure(let error):
                     print("SendMessage Error", error.localizedDescription)
                 }
             } receiveValue: { data in
                 print(data.messageId)
+            }
+            .store(in: &cancellable)
+    }
+    
+    private func fethchRecipientUser(){
+        guard let userId = getRecipientId() else {return}
+        userService.getUserForId(userId)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                NetworkController.share.handlingCompletion(completion: completion)
+            } receiveValue: { recipient in
+                print(recipient)
+                print(userId)
+                self.recipientUser = recipient
             }
             .store(in: &cancellable)
     }
@@ -130,10 +163,39 @@ extension ChatViewModel{
 extension ChatViewModel{
     
     public var isActiveSendButton: Bool{
-       return !chatText.isEmpty
+        !chatText.isEmpty
     }
+    
+    public func deleteImage(){
+        imageData?.removeAll()
+    }
+    
+    func getRecipientId() -> Int?{
+        chatMessages.first(where: {$0.recipient != userManager.currentUser?.userId})?.recipient
+    }
+    
+    
 }
 
+// MARK: Chat mode
+extension ChatViewModel{
+    
+    enum ChatViewMod: Int {
+        
+        case `operator`, client
+        
+        
+        var navigatinTitle: String{
+            switch self{
+            case .operator: return "Чат поддержки с клиентом"
+            case .client: return "Центр заботы клиентах"
+            }
+        }
+        
+        
+       // var subTitle
+    }
+}
 
 extension Decodable {
     static func decode(with decoder: JSONDecoder = JSONDecoder(), from data: Data) throws -> Self? {

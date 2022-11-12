@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ChatView: View {
     @StateObject var chatVM = ChatViewModel()
+    @State private var pickerType: ImagePickerType = .photoLib
     @State private var showImagePicker: Bool = false
+    @State private var showImageComfirmDialog: Bool = false
     @State private var showDetailsImageView: Bool = false
     let scrollId = "BOTTOM"
     var body: some View {
@@ -33,12 +35,10 @@ struct ChatView: View {
             }
         }
         .safeAreaInset(edge: .bottom){
-            chatBottomBar
+            ChatBottomBarView(showImageComfirmDialog: $showImageComfirmDialog)
+                .environmentObject(chatVM)
         }
         .background(Color.bg)
-//        .sheet(isPresented: $showImagePicker, onDismiss: nil) {
-//            ImagePicker(imageData: $chatVM.imageData)
-//        }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -46,6 +46,10 @@ struct ChatView: View {
             }
         }
         .navigationBarBackButtonHidden(showDetailsImageView)
+        .imagePicker(pickerType: pickerType, show: $showImagePicker, imagesData: $chatVM.imageData, onDismiss: {})
+        .confirmationDialog("", isPresented: $showImageComfirmDialog) {
+            comfirmContent
+        }
     }
 }
 
@@ -63,39 +67,14 @@ struct ChatView_Previews: PreviewProvider {
 
 extension ChatView{
     private var navigationBar: some View{
-        Text("Messages")
+        Text(chatVM.recipientUser?.name ?? "NO name")
     }
 }
 
 // MARK: Bottom bar section view
 extension ChatView{
 
-    private var chatBottomBar: some View{
-        VStack(alignment: .leading, spacing: 20) {
-            Divider()
-            //imageViewForChatBottomBar
-            HStack(spacing: 15) {
-                Button {
-                    showImagePicker.toggle()
-                } label: {
-                    Image(systemName: "paperclip")
-                        .font(.system(size: 25, weight: .medium))
-                }
-                PrimaryTextField(label: "Сообщение", text: $chatVM.chatText)
-                Button {
-                    chatVM.sendMessage()
-                } label: {
-                    Image(systemName: "paperplane.fill")
-                        .font(.title3)
-                }
-                .disabled(!chatVM.isActiveSendButton)
-            }
-            .padding(.horizontal, 15)
-        }
-        .padding(.bottom, 10)
-        .background(Color.white)
-        .background(.regularMaterial)
-    }
+ 
     
     private var laoderView: some View{
         ProgressView().tint(.accentColor).scaleEffect(1.5)
@@ -122,5 +101,26 @@ extension ChatView{
             .padding(.vertical, 4)
         }
         .padding(.horizontal, 10)
+    }
+}
+
+
+
+
+
+// MARK: Comfirm
+
+extension ChatView{
+    private var comfirmContent: some View{
+        Group{
+            Button("Сделать фото") {
+                pickerType = .camera
+                showImagePicker = true
+            }
+            Button("Выбрать из галереи") {
+                pickerType = .photoLib
+                showImagePicker = true
+            }
+        }
     }
 }

@@ -40,6 +40,9 @@
 		5A6F38D629203E6800569A3B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6F38D529203E6800569A3B /* FirebaseStorage */; };
 		5A6F38D929203EFF00569A3B /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F38D829203EFF00569A3B /* ImageUploader.swift */; };
 		5A6F38DB29203F9A00569A3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6F38DA29203F9A00569A3B /* GoogleService-Info.plist */; };
+		5A6F38DE29204E5C00569A3B /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F38DD29204E5C00569A3B /* CameraPicker.swift */; };
+		5A6F38E02920547B00569A3B /* ChatBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F38DF2920547B00569A3B /* ChatBottomBarView.swift */; };
+		5A6F38E2292062B300569A3B /* CustomLazyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F38E1292062B300569A3B /* CustomLazyImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,9 @@
 		5A6F38D829203EFF00569A3B /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		5A6F38DA29203F9A00569A3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A6F38DC29203FB300569A3B /* Hack-ChangeAdvisory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Hack-ChangeAdvisory-Info.plist"; sourceTree = SOURCE_ROOT; };
+		5A6F38DD29204E5C00569A3B /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		5A6F38DF2920547B00569A3B /* ChatBottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBottomBarView.swift; sourceTree = "<group>"; };
+		5A6F38E1292062B300569A3B /* CustomLazyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLazyImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,7 @@
 			children = (
 				5A6F38D829203EFF00569A3B /* ImageUploader.swift */,
 				5A5E8F4D291F1160002F3395 /* Extensions */,
+				5A6F38DD29204E5C00569A3B /* CameraPicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -224,6 +231,7 @@
 			children = (
 				5A5E8F54291F1944002F3395 /* PrimaryTextField.swift */,
 				5A5E8F58291F1AD4002F3395 /* PrimaryButtonView.swift */,
+				5A6F38E1292062B300569A3B /* CustomLazyImage.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 			children = (
 				5A5E8F71291FADE4002F3395 /* ReversedSrollView.swift */,
 				5A5E8F76291FB117002F3395 /* MessageView.swift */,
+				5A6F38DF2920547B00569A3B /* ChatBottomBarView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -395,6 +404,7 @@
 			files = (
 				5A5E8F6E291F2C1A002F3395 /* ChatView.swift in Sources */,
 				5A5E8F75291FAE76002F3395 /* ChatViewModel.swift in Sources */,
+				5A6F38E2292062B300569A3B /* CustomLazyImage.swift in Sources */,
 				5A5E8F66291F2383002F3395 /* HomeViewModel.swift in Sources */,
 				5A5E8F69291F2BC5002F3395 /* MainView.swift in Sources */,
 				5A5E8F5B291F1B1F002F3395 /* View.swift in Sources */,
@@ -413,10 +423,12 @@
 				5A5E8F81291FC381002F3395 /* WebSocketStream.swift in Sources */,
 				5A5E8F72291FADE4002F3395 /* ReversedSrollView.swift in Sources */,
 				5A5E8F52291F11FD002F3395 /* LoginView.swift in Sources */,
+				5A6F38E02920547B00569A3B /* ChatBottomBarView.swift in Sources */,
 				5A5E8F79291FB1FD002F3395 /* Message.swift in Sources */,
 				5A5E8F42291F0136002F3395 /* NetworkControllerProtocol.swift in Sources */,
 				5A5E8F49291F09D4002F3395 /* Endpoint.swift in Sources */,
 				5A6F38D929203EFF00569A3B /* ImageUploader.swift in Sources */,
+				5A6F38DE29204E5C00569A3B /* CameraPicker.swift in Sources */,
 				5A5E8F4C291F0F89002F3395 /* LoginViewModel.swift in Sources */,
 				5A5E8F4F291F116F002F3395 /* String.swift in Sources */,
 				5A5E8F2B291EFDDD002F3395 /* Hack_ChangeAdvisoryApp.swift in Sources */,

@@ -27,10 +27,10 @@ struct MessageView_Previews: PreviewProvider {
 }
 
 extension MessageView{
-    
     private var messageRowView: some View{
         HStack {
             VStack(alignment: .leading, spacing: 0) {
+                imageView
                 if let text = message.text{
                     Text(text)
                         .font(.system(size: 16))
@@ -48,6 +48,16 @@ extension MessageView{
             .padding(.vertical, 2)
         }
         .frame(maxWidth: .infinity, alignment: isSender ? .trailing : .leading)
+    }
+    private var imageView: some View{
+        Group{
+            if let image = message.mediaUrl{
+                CustomLazyImage(strUrl: image, resizingMode: .aspectFill, loadPriority: .high)
+                .frame(height: 150)
+                .cornerRadius(8)
+                .padding(.init(top: -6, leading: -10, bottom: 5, trailing: -10))
+            }
+        }
     }
 }
 

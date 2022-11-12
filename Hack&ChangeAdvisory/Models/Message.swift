@@ -35,6 +35,14 @@ enum MessageType: String, Codable{
     case text = "TEXT"
     case widget = "WIDGET"
     case media = "MEDIA"
+    
+    func getType(image: String?) -> Self{
+        if image != nil{
+            return .media
+        }else{
+            return .text
+        }
+    }
 }
 
 
