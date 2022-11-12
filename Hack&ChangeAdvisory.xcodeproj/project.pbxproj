@@ -35,6 +35,11 @@
 		5A5E8F7C291FB668002F3395 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F7B291FB668002F3395 /* Mocks.swift */; };
 		5A5E8F7F291FC2EF002F3395 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F7E291FC2EF002F3395 /* ChatService.swift */; };
 		5A5E8F81291FC381002F3395 /* WebSocketStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F80291FC380002F3395 /* WebSocketStream.swift */; };
+		5A6F38D129203D8F00569A3B /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6F38D029203D8F00569A3B /* NukeUI */; };
+		5A6F38D429203E6800569A3B /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6F38D329203E6800569A3B /* FirebaseFirestoreSwift */; };
+		5A6F38D629203E6800569A3B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6F38D529203E6800569A3B /* FirebaseStorage */; };
+		5A6F38D929203EFF00569A3B /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F38D829203EFF00569A3B /* ImageUploader.swift */; };
+		5A6F38DB29203F9A00569A3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6F38DA29203F9A00569A3B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +72,9 @@
 		5A5E8F7B291FB668002F3395 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		5A5E8F7E291FC2EF002F3395 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		5A5E8F80291FC380002F3395 /* WebSocketStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketStream.swift; sourceTree = "<group>"; };
+		5A6F38D829203EFF00569A3B /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		5A6F38DA29203F9A00569A3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A6F38DC29203FB300569A3B /* Hack-ChangeAdvisory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Hack-ChangeAdvisory-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6F38D129203D8F00569A3B /* NukeUI in Frameworks */,
+				5A6F38D429203E6800569A3B /* FirebaseFirestoreSwift in Frameworks */,
+				5A6F38D629203E6800569A3B /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +110,8 @@
 		5A5E8F29291EFDDD002F3395 /* Hack&ChangeAdvisory */ = {
 			isa = PBXGroup;
 			children = (
+				5A6F38DC29203FB300569A3B /* Hack-ChangeAdvisory-Info.plist */,
+				5A6F38DA29203F9A00569A3B /* GoogleService-Info.plist */,
 				5A5E8F62291F2137002F3395 /* Models */,
 				5A5E8F3B291EFEF9002F3395 /* App */,
 				5A5E8F3E291EFF09002F3395 /* Service */,
@@ -143,6 +156,7 @@
 		5A5E8F3D291EFF04002F3395 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5A6F38D829203EFF00569A3B /* ImageUploader.swift */,
 				5A5E8F4D291F1160002F3395 /* Extensions */,
 			);
 			path = Utils;
@@ -316,6 +330,9 @@
 			);
 			name = "Hack&ChangeAdvisory";
 			packageProductDependencies = (
+				5A6F38D029203D8F00569A3B /* NukeUI */,
+				5A6F38D329203E6800569A3B /* FirebaseFirestoreSwift */,
+				5A6F38D529203E6800569A3B /* FirebaseStorage */,
 			);
 			productName = "Hack&ChangeAdvisory";
 			productReference = 5A5E8F27291EFDDD002F3395 /* Hack&ChangeAdvisory.app */;
@@ -346,6 +363,8 @@
 			);
 			mainGroup = 5A5E8F1E291EFDDD002F3395;
 			packageReferences = (
+				5A6F38CF29203D8F00569A3B /* XCRemoteSwiftPackageReference "NukeUI" */,
+				5A6F38D229203E6800569A3B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 5A5E8F28291EFDDD002F3395 /* Products */;
 			projectDirPath = "";
@@ -363,6 +382,7 @@
 			files = (
 				5A5E8F32291EFDDE002F3395 /* Preview Assets.xcassets in Resources */,
 				5A5E8F2F291EFDDE002F3395 /* Assets.xcassets in Resources */,
+				5A6F38DB29203F9A00569A3B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +416,7 @@
 				5A5E8F79291FB1FD002F3395 /* Message.swift in Sources */,
 				5A5E8F42291F0136002F3395 /* NetworkControllerProtocol.swift in Sources */,
 				5A5E8F49291F09D4002F3395 /* Endpoint.swift in Sources */,
+				5A6F38D929203EFF00569A3B /* ImageUploader.swift in Sources */,
 				5A5E8F4C291F0F89002F3395 /* LoginViewModel.swift in Sources */,
 				5A5E8F4F291F116F002F3395 /* String.swift in Sources */,
 				5A5E8F2B291EFDDD002F3395 /* Hack_ChangeAdvisoryApp.swift in Sources */,
@@ -530,6 +551,7 @@
 				DEVELOPMENT_TEAM = 92PU6D6MCQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hack-ChangeAdvisory-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -560,6 +582,7 @@
 				DEVELOPMENT_TEAM = 92PU6D6MCQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hack-ChangeAdvisory-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -601,6 +624,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A6F38CF29203D8F00569A3B /* XCRemoteSwiftPackageReference "NukeUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/NukeUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.3;
+			};
+		};
+		5A6F38D229203E6800569A3B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A6F38D029203D8F00569A3B /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A6F38CF29203D8F00569A3B /* XCRemoteSwiftPackageReference "NukeUI" */;
+			productName = NukeUI;
+		};
+		5A6F38D329203E6800569A3B /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A6F38D229203E6800569A3B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		5A6F38D529203E6800569A3B /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A6F38D229203E6800569A3B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A5E8F1F291EFDDD002F3395 /* Project object */;
 }
