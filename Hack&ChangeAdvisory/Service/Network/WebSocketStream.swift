@@ -18,8 +18,8 @@ final class WebSocketStream: AsyncSequence{
     private let socket: URLSessionWebSocketTask
     
     
-    init(url: String, session: URLSession = URLSession.shared) {
-        socket = session.webSocketTask(with: URL(string: url)!)
+    init(request: URLRequest) {
+        socket = URLSession.shared.webSocketTask(with: request)
         stream = AsyncThrowingStream { continuation in
             self.continuation = continuation
             self.continuation?.onTermination = { @Sendable [socket] _ in

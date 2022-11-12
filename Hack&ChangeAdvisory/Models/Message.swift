@@ -63,3 +63,11 @@ struct SendMessageResponse: Codable{
 struct DialogIdResponse: Codable{
     var dialogId: Int
 }
+
+
+struct SocketMessageModel: Codable{
+    var messageData: Message
+}
+
+
+//{"messageData":{"messageId":"29eac78e-5b6b-4af0-807e-d9e0d3ccf8ea","text":"Test12","messageType":"TEXT","sender":100143,"recipient":100142,"dialogId":3,"timestamp":1668261720157}}

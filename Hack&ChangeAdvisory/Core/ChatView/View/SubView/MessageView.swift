@@ -35,12 +35,12 @@ extension MessageView{
                 if let text = message.text{
                     Text(text)
                         .font(.system(size: 16))
-                    Text(message.messageDate ?? "")
-                        .font(.caption2)
-                        .hTrailing()
+//                    Text(message.messageDate ?? "")
+//                        .font(.caption2)
+//                        .hTrailing()
                 }
             }
-            .padding(6)
+            .padding(10)
             .padding(.horizontal, 5)
             .foregroundColor(isSender ? .black : .white)
             .background(isSender ? Color.accentBg : Color.accentColor)

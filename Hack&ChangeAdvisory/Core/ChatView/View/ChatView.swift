@@ -15,13 +15,19 @@ struct ChatView: View {
     var body: some View {
         VStack(spacing: 0){
             ScrollViewReader{ scrollViewReader in
-                ReversedScrollView{
-                    messagesSection
-                    emptyBottomAnhor
-                }
-                .onReceive(chatVM.$messageReceive) { _ in
-                    withAnimation {
-                        scrollViewReader.scrollTo(scrollId)
+                if chatVM.showLoader{
+                    laoderView
+                }else{
+                    ReversedScrollView{
+                        
+                        messagesSection
+                        
+                        emptyBottomAnhor
+                    }
+                    .onReceive(chatVM.$chatMessages) { _ in
+                        withAnimation {
+                            scrollViewReader.scrollTo(scrollId)
+                        }
                     }
                 }
             }
@@ -89,6 +95,11 @@ extension ChatView{
         .padding(.bottom, 10)
         .background(Color.white)
         .background(.regularMaterial)
+    }
+    
+    private var laoderView: some View{
+        ProgressView().tint(.accentColor).scaleEffect(1.5)
+            .allFrame()
     }
     
 //    private var imageViewForChatBottomBar: some View{
