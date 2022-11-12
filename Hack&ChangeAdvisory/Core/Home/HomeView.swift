@@ -11,7 +11,7 @@ struct HomeView: View {
     @StateObject var homeVM = HomeViewModel()
     var body: some View {
         VStack {
-            Text("Home")
+            userProfileRow
             Button("logout") {
                 UserManager.share.logOut()
             }
@@ -24,3 +24,14 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
+extension HomeView{
+    private var userProfileRow: some View{
+        HStack{
+            Text((homeVM.currentUser?.name ?? "") + "\(homeVM.currentUser?.surname ?? "")")
+        }
+    }
+}
+
+
+

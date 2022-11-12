@@ -26,6 +26,8 @@
 		5A5E8F61291F1FB3002F3395 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F60291F1FB3002F3395 /* HomeView.swift */; };
 		5A5E8F64291F216A002F3395 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F63291F216A002F3395 /* User.swift */; };
 		5A5E8F66291F2383002F3395 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F65291F2383002F3395 /* HomeViewModel.swift */; };
+		5A5E8F69291F2BC5002F3395 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F68291F2BC5002F3395 /* MainView.swift */; };
+		5A5E8F6E291F2C1A002F3395 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F6D291F2C1A002F3395 /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		5A5E8F60291F1FB3002F3395 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5A5E8F63291F216A002F3395 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5A5E8F65291F2383002F3395 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5A5E8F68291F2BC5002F3395 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5A5E8F6D291F2C1A002F3395 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 		5A5E8F3C291EFF00002F3395 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5A5E8F6A291F2C08002F3395 /* ChatView */,
+				5A5E8F67291F2BB1002F3395 /* MainContainer */,
 				5A5E8F5E291F1FA3002F3395 /* Home */,
 				5A5E8F53291F1919002F3395 /* ViewComponents */,
 				5A5E8F50291F11E3002F3395 /* Login */,
@@ -216,6 +222,38 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5A5E8F67291F2BB1002F3395 /* MainContainer */ = {
+			isa = PBXGroup;
+			children = (
+				5A5E8F68291F2BC5002F3395 /* MainView.swift */,
+			);
+			path = MainContainer;
+			sourceTree = "<group>";
+		};
+		5A5E8F6A291F2C08002F3395 /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				5A5E8F6C291F2C12002F3395 /* View */,
+				5A5E8F6B291F2C0D002F3395 /* ViewModel */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		5A5E8F6B291F2C0D002F3395 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5A5E8F6C291F2C12002F3395 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A5E8F6D291F2C1A002F3395 /* ChatView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,7 +328,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A5E8F6E291F2C1A002F3395 /* ChatView.swift in Sources */,
 				5A5E8F66291F2383002F3395 /* HomeViewModel.swift in Sources */,
+				5A5E8F69291F2BC5002F3395 /* MainView.swift in Sources */,
 				5A5E8F5B291F1B1F002F3395 /* View.swift in Sources */,
 				5A5E8F55291F1944002F3395 /* PrimaryTextField.swift in Sources */,
 				5A5E8F5D291F1E10002F3395 /* UserManager.swift in Sources */,
