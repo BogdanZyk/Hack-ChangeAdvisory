@@ -55,7 +55,7 @@ extension Endpoint {
 extension Endpoint {
     
     
-    static var sentMessage: Self{
+    static var sendMessage: Self{
         return Endpoint(path: "/message/send")
     }
     

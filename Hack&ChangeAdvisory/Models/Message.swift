@@ -38,15 +38,27 @@ enum MessageType: String, Codable{
 }
 
 
-
-struct MessageRequest: Codable{
-    let messageId: String
-    let text: String
-    let messageType: MessageType
-    var data: String?
-    var mediaUrl: String?
+struct MessageResponse: Codable{
+    let messages: [Message]
 }
 
+
+struct MessageRequest: Codable{
+    
+    let message: Message
+    
+    struct Message: Codable{
+        let dialogId: Int
+        let text: String
+        let messageType: String
+        var data: String?
+        var mediaUrl: String?
+    }
+}
+
+struct SendMessageResponse: Codable{
+    let messageId: String
+}
 
 struct DialogIdResponse: Codable{
     var dialogId: Int

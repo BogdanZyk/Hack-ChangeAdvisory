@@ -33,4 +33,7 @@ final class UserManager: ObservableObject{
         defaults.removeObject(forKey: "JWT")
         checkIsLogin()
     }
+    
+    
+    
 }

@@ -11,7 +11,7 @@ struct ContentView: View {
     @StateObject var userManager = UserManager.share
     var body: some View {
         if userManager.isLoggin{
-            HomeView()
+            MainView()
         }else{
             LoginView()
         }

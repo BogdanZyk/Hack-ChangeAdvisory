@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ChatView: View {
     @StateObject var chatVM = ChatViewModel()
-    let selectedChatUserId: String?
     @State private var showImagePicker: Bool = false
     @State private var showDetailsImageView: Bool = false
     let scrollId = "BOTTOM"
@@ -36,11 +35,8 @@ struct ChatView: View {
 //        }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-               
+            ToolbarItem(placement: .principal) {
+                navigationBar
             }
         }
         .navigationBarBackButtonHidden(showDetailsImageView)
@@ -50,12 +46,20 @@ struct ChatView: View {
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChatView(selectedChatUserId: "Ez2lDmtzekf0I4KV8yrcqPLR5jp1")
+            ChatView()
                 .preferredColorScheme(.light)
         }
     }
 }
 
+// MARK: Navigation bar contetn
+
+
+extension ChatView{
+    private var navigationBar: some View{
+        Text("Messages")
+    }
+}
 
 // MARK: Bottom bar section view
 extension ChatView{
@@ -73,7 +77,7 @@ extension ChatView{
                 }
                 PrimaryTextField(label: "Сообщение", text: $chatVM.chatText)
                 Button {
-                    
+                    chatVM.sendMessage()
                 } label: {
                     Image(systemName: "paperplane.fill")
                         .font(.title3)
@@ -195,7 +199,7 @@ extension ChatView{
 extension ChatView{
     private var messagesSection: some View{
         LazyVStack(spacing: 0) {
-            ForEach(Mocks.messages){ message in
+            ForEach(chatVM.chatMessages){ message in
                MessageView(message: message, isSender: false)
             }
             .padding(.vertical, 4)
