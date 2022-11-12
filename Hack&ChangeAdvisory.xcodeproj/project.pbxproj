@@ -13,7 +13,7 @@
 		5A5E8F32291EFDDE002F3395 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5E8F31291EFDDE002F3395 /* Preview Assets.xcassets */; };
 		5A5E8F42291F0136002F3395 /* NetworkControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F41291F0136002F3395 /* NetworkControllerProtocol.swift */; };
 		5A5E8F44291F019A002F3395 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F43291F019A002F3395 /* NetworkController.swift */; };
-		5A5E8F47291F062B002F3395 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F46291F062B002F3395 /* UserServices.swift */; };
+		5A5E8F47291F062B002F3395 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F46291F062B002F3395 /* UserService.swift */; };
 		5A5E8F49291F09D4002F3395 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F48291F09D4002F3395 /* Endpoint.swift */; };
 		5A5E8F4C291F0F89002F3395 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F4B291F0F89002F3395 /* LoginViewModel.swift */; };
 		5A5E8F4F291F116F002F3395 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F4E291F116F002F3395 /* String.swift */; };
@@ -50,7 +50,7 @@
 		5A5E8F31291EFDDE002F3395 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A5E8F41291F0136002F3395 /* NetworkControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkControllerProtocol.swift; sourceTree = "<group>"; };
 		5A5E8F43291F019A002F3395 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
-		5A5E8F46291F062B002F3395 /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		5A5E8F46291F062B002F3395 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		5A5E8F48291F09D4002F3395 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		5A5E8F4B291F0F89002F3395 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5A5E8F4E291F116F002F3395 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		5A5E8F45291F0621002F3395 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				5A5E8F46291F062B002F3395 /* UserServices.swift */,
+				5A5E8F46291F062B002F3395 /* UserService.swift */,
 				5A5E8F5C291F1E10002F3395 /* UserManager.swift */,
 			);
 			path = User;
@@ -408,7 +408,7 @@
 				5A5E8F57291F19FF002F3395 /* Color.swift in Sources */,
 				5A5E8F44291F019A002F3395 /* NetworkController.swift in Sources */,
 				5A5E8F2D291EFDDD002F3395 /* ContentView.swift in Sources */,
-				5A5E8F47291F062B002F3395 /* UserServices.swift in Sources */,
+				5A5E8F47291F062B002F3395 /* UserService.swift in Sources */,
 				5A5E8F59291F1AD4002F3395 /* PrimaryButtonView.swift in Sources */,
 				5A5E8F81291FC381002F3395 /* WebSocketStream.swift in Sources */,
 				5A5E8F72291FADE4002F3395 /* ReversedSrollView.swift in Sources */,

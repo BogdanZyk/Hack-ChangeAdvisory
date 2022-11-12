@@ -10,10 +10,15 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var userManager = UserManager.share
     var body: some View {
-        if userManager.isLoggin{
-            MainView()
-        }else{
-            LoginView()
+        Group{
+            if userManager.isLoggin{
+                MainView()
+            }else{
+                LoginView()
+            }
+        }
+        .onAppear{
+            userManager.verifyToken()
         }
     }
 }

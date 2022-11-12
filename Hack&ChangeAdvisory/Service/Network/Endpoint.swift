@@ -81,4 +81,8 @@ extension Endpoint {
     static var auth:  Self{
         return Endpoint(path: "/auth")
     }
+    
+    static var verifyJWT: Self{
+        return Endpoint(path: "/jwt/verify")
+    }
 }

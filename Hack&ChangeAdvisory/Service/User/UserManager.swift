@@ -7,34 +7,45 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 final class UserManager: ObservableObject{
     
-    static let share = UserManager()
-    let defaults = UserDefaults.standard
-    @Published var currentUser: User?
-    
-    var userRole: String = ""
-    
     @AppStorage("isLoggin") var isLoggin = false
     
+    static let share = UserManager()
+    let userService = UserService()
+    let defaults = UserDefaults.standard
+    @Published var currentUser: User?
+    @Published var userRole: UserRole?
+    private var cancellable = Set<AnyCancellable>()
     
-    private init(){
-        checkIsLogin()
-    }
     
-    func checkIsLogin(){
-        DispatchQueue.main.async {
-            self.isLoggin = self.defaults.string(forKey: "JWT") != nil
-            self.userRole = self.defaults.string(forKey: "ROLE") ?? ""
-        }
-    }
+    
     
     func logOut(){
         defaults.removeObject(forKey: "JWT")
-        checkIsLogin()
+        isLoggin = false
     }
+}
+
+// MARK: API
+
+extension UserManager{
     
-    
-    
+    /// check is loggin user status
+    func verifyToken(){
+        userService.verifyJWT()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                NetworkController.share.handlingCompletion(completion: completion)
+            } receiveValue: { response in
+                self.userRole = response.role
+                withAnimation{
+                    self.isLoggin = true
+                }
+            }
+            .store(in: &cancellable)
+
+    }
 }

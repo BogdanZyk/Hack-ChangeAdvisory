@@ -10,13 +10,13 @@ import Combine
 
 final class HomeViewModel: ObservableObject{
     
-    let userService: UserServicesProtocol
+    let userService: UserServiceProtocol
     let userManager = UserManager.share
     @Published var currentUser: User?
     
     private var cancellable = Set<AnyCancellable>()
     
-    init(userService: UserServicesProtocol = UserServices()){
+    init(userService: UserServiceProtocol = UserService()){
         self.userService = userService
         getCurrentUser()
     }

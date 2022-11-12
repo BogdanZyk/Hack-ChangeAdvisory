@@ -20,7 +20,7 @@ struct User: Codable{
 struct UserResponse: Codable{
     var userId: Int
     var login: String
-    var role: String
+    var role: UserRole
     var jwtToken: String
 }
 
@@ -29,4 +29,16 @@ struct UserAuth: Codable{
     var password: String
 }
 
+struct VerifyRequest: Codable{
+    let jwt: String
+}
 
+struct VerifyResponse: Codable{
+    let userId: Int
+    let role: UserRole
+}
+
+enum UserRole: String, Codable{
+    case client = "CLIENT"
+    case `operator` = "OPERATOR"
+}

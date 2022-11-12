@@ -17,14 +17,13 @@ class LoginViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var showLoader: Bool = false
     
-    let userService: UserServicesProtocol
+    let userService: UserServiceProtocol
     let userManager = UserManager.share
     
     private var cansellable = Set<AnyCancellable>()
     
-    init(userService: UserServicesProtocol = UserServices()){
+    init(userService: UserServiceProtocol = UserService()){
         self.userService = userService
-    
     }
     
     func logIn(){
@@ -44,8 +43,7 @@ class LoginViewModel: ObservableObject {
                 guard let self = self else {return}
                 let token = response.jwtToken
                 self.defaults.set(token, forKey: "JWT")
-                self.defaults.set(response.role, forKey: "ROLE")
-                self.userManager.checkIsLogin()
+                self.userManager.verifyToken()
             }
             .store(in: &cansellable)
     }
