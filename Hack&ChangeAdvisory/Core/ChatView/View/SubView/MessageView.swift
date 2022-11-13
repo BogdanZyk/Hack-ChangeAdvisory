@@ -32,19 +32,23 @@ extension MessageView{
             VStack(alignment: .leading, spacing: 0) {
                 imageView
                 if let text = message.text{
-                    Text(text)
-                        .font(.system(size: 16))
-//                    Text(message.messageDate ?? "")
-//                        .font(.caption2)
-//                        .hTrailing()
+                    HStack(alignment: .bottom) {
+                        Text(text)
+                            .font(.system(size: 16))
+                        if message.messageType == .media{
+                            Spacer()
+                        }
+                        Text(message.messageDate ?? "")
+                            .font(.system(size: 10))
+                    }
                 }
             }
-            .padding(10)
+            .padding(8)
             .padding(.horizontal, 5)
             .foregroundColor(isSender ? .white : .black)
             .background(isSender ? Color.accentColor : Color.accentBg)
             .clipShape(RoundedRectangle(cornerRadius: 8))
-            .frame(width: getRect().width / 2, alignment: isSender ? .trailing : .leading)
+            .frame(width: getRect().width / 1.4, alignment: isSender ? .trailing : .leading)
             .padding(.vertical, 2)
         }
         .frame(maxWidth: .infinity, alignment: isSender ? .trailing : .leading)
@@ -55,7 +59,7 @@ extension MessageView{
                 CustomLazyImage(strUrl: image, resizingMode: .aspectFill, loadPriority: .high)
                 .frame(height: 150)
                 .cornerRadius(8)
-                .padding(.init(top: -6, leading: -10, bottom: 5, trailing: -10))
+                .padding(.init(top: -4, leading: -8, bottom: 5, trailing: -8))
             }
         }
     }

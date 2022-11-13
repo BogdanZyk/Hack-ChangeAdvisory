@@ -32,7 +32,8 @@ final class ChatService: ChatServiceProtocol{
     }
     
     func getDialogHistoryForId(_ dialogId: Int) -> AnyPublisher<MessageResponse, Error>{
-        let endpoint = Endpoint.dealogHistory(dialogId: dialogId, limit: 30)
+        print(Date.currentTimeStamp)
+        let endpoint = Endpoint.dealogHistory(dialogId: dialogId, timestamp: Date().unixTimestamp, older: "TRUE", limit: 30)
         var request = URLRequest(url: endpoint.url)
         request.allHTTPHeaderFields = Endpoint.buildHeaders()
         return networkManager.get(type: MessageResponse.self, urlRequest: request)
@@ -51,6 +52,7 @@ final class ChatService: ChatServiceProtocol{
         return networkManager.get(type: SendMessageResponse.self, urlRequest: request)
     }
 }
+
 
 
 

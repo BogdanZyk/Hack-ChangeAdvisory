@@ -59,10 +59,12 @@ extension Endpoint {
         return Endpoint(path: "/message/send")
     }
     
-    static func dealogHistory(dialogId: Int, limit: Int) -> Self{
+    static func dealogHistory(dialogId: Int, timestamp: Int, older: String, limit: Int) -> Self{
         return Endpoint(path: "/chat/history",
-                        queryItems: [URLQueryItem(name: "dialogId", value: "\(dialogId)"),
-                                     URLQueryItem(name: "limit", value: "\(limit)")])
+                        queryItems: [URLQueryItem(name: "timestamp", value: "\(timestamp)"),
+                                     URLQueryItem(name: "older", value: "\(older)"),
+                                     URLQueryItem(name: "limit", value: "\(limit)"),
+                                     URLQueryItem(name: "dialogId", value: "\(dialogId)")])
     }
     
     static var dialog: Self{

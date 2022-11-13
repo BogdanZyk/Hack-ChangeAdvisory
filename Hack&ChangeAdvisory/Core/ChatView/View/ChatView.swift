@@ -16,6 +16,7 @@ struct ChatView: View {
     let scrollId = "BOTTOM"
     var body: some View {
         VStack(spacing: 0){
+            navigationBar
             ScrollViewReader{ scrollViewReader in
                 if chatVM.showLoader{
                     laoderView
@@ -40,11 +41,6 @@ struct ChatView: View {
         }
         .background(Color.bg)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                navigationBar
-            }
-        }
         .navigationBarBackButtonHidden(showDetailsImageView)
         .imagePicker(pickerType: pickerType, show: $showImagePicker, imagesData: $chatVM.imageData, onDismiss: {})
         .confirmationDialog("", isPresented: $showImageComfirmDialog) {
@@ -67,7 +63,22 @@ struct ChatView_Previews: PreviewProvider {
 
 extension ChatView{
     private var navigationBar: some View{
-        Text(chatVM.recipientUser?.name ?? "NO name")
+        VStack(spacing: 5){
+            Text(chatVM.chatMode.navigatinTitle)
+                .font(.system(size: 18, weight: .bold))
+            Group{
+                if chatVM.chatMode == .client{
+                    Text("Готовы ответить на ваши воросы\nпо будням с 10.00 до 19.00 по мск")
+               }else{
+                   Text("\(chatVM.recipientUser?.name ?? "")" + "\(chatVM.recipientUser?.surname ?? "")")
+               }
+            }
+            .font(.system(size: 14, weight: .medium))
+            .foregroundColor(.foreground2)
+        }
+        .hCenter()
+        .padding(.bottom, 10)
+        .background(Color.white)
     }
 }
 

@@ -22,9 +22,10 @@ struct Message: Codable, Identifiable{
     let timestamp: Int
     
     var messageDate: String?{
+        let date = timestamp.date
         let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current
         dateFormatter.dateFormat = "h:mm"
-        let date = Date(timeIntervalSinceNow: TimeInterval(timestamp))
         return dateFormatter.string(from: date)
     }
     

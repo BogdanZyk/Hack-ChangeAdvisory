@@ -108,7 +108,7 @@ extension ChatViewModel{
                     print(error.localizedDescription)
                 }
             } receiveValue: { response in
-                self.chatMessages = response.messages
+                self.chatMessages = response.messages.reversed()
                 if self.recipientUser == nil{
                     self.fethchRecipientUser()
                 }
@@ -121,7 +121,6 @@ extension ChatViewModel{
         ImageUploader.uploadImage(withImage: imageData?.first?.image) {[weak self] mediaUrl in
             guard let self = self else {return}
             let request = MessageRequest(message: .init(dialogId: dialogId, text: self.chatText, messageType: MessageType.text.getType(image: mediaUrl).rawValue, mediaUrl: mediaUrl))
-            print(mediaUrl)
             self.sendMessageWithRequest(request: request)
         }
     }
@@ -187,8 +186,8 @@ extension ChatViewModel{
         
         var navigatinTitle: String{
             switch self{
-            case .operator: return "Чат поддержки с клиентом"
-            case .client: return "Центр заботы клиентах"
+            case .operator: return "Чат с клиентом"
+            case .client: return "Центр заботы о клиентах"
             }
         }
         
