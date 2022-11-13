@@ -38,6 +38,7 @@
 		5A5E8F7C291FB668002F3395 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F7B291FB668002F3395 /* Mocks.swift */; };
 		5A5E8F7F291FC2EF002F3395 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F7E291FC2EF002F3395 /* ChatService.swift */; };
 		5A5E8F81291FC381002F3395 /* WebSocketStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F80291FC380002F3395 /* WebSocketStream.swift */; };
+		EB6223D72920E7250048341D /* AgreementWebPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6223D62920E7250048341D /* AgreementWebPage.swift */; };
 		5A6F38D129203D8F00569A3B /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6F38D029203D8F00569A3B /* NukeUI */; };
 		5A6F38D429203E6800569A3B /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6F38D329203E6800569A3B /* FirebaseFirestoreSwift */; };
 		5A6F38D629203E6800569A3B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6F38D529203E6800569A3B /* FirebaseStorage */; };
@@ -83,6 +84,7 @@
 		5A5E8F7B291FB668002F3395 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		5A5E8F7E291FC2EF002F3395 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		5A5E8F80291FC380002F3395 /* WebSocketStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketStream.swift; sourceTree = "<group>"; };
+		EB6223D62920E7250048341D /* AgreementWebPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementWebPage.swift; sourceTree = "<group>"; };
 		5A6F38D829203EFF00569A3B /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		5A6F38DA29203F9A00569A3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A6F38DC29203FB300569A3B /* Hack-ChangeAdvisory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Hack-ChangeAdvisory-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -261,6 +263,7 @@
 			children = (
 				5A5E8F5F291F1FA8002F3395 /* ViewModel */,
 				5A5E8F60291F1FB3002F3395 /* HomeView.swift */,
+				EB6223D62920E7250048341D /* AgreementWebPage.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				5A5E8F61291F1FB3002F3395 /* HomeView.swift in Sources */,
 				5ACE648329209C2600B6F8C0 /* ChatActionSheetView.swift in Sources */,
 				5A5E8F64291F216A002F3395 /* User.swift in Sources */,
+				EB6223D72920E7250048341D /* AgreementWebPage.swift in Sources */,
 				5A5E8F57291F19FF002F3395 /* Color.swift in Sources */,
 				5A5E8F44291F019A002F3395 /* NetworkController.swift in Sources */,
 				5A5E8F2D291EFDDD002F3395 /* ContentView.swift in Sources */,
