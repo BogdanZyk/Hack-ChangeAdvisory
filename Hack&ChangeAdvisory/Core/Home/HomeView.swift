@@ -18,13 +18,13 @@ struct HomeView: View {
         VStack(spacing: 100) {
             
             userProfileRow
-            NavigationView{
-                Button("Пользовательское соглашение"){
-                    presentSheet = true
-                }.buttonStyle(.borderedProminent)
-            }.sheet(isPresented: $presentSheet){
-                AgreementwebPage()
-            }
+//            NavigationView{
+//                Button("Пользовательское соглашение"){
+//                    presentSheet = true
+//                }.buttonStyle(.borderedProminent)
+//            }.sheet(isPresented: $presentSheet){
+//                AgreementwebPage()
+//            }
             Button("logout") {
                 showAlert = true
             }.buttonStyle(.bordered).alert("Вы уверены, что хотите выйти?", isPresented: $showAlert){
@@ -35,7 +35,7 @@ struct HomeView: View {
                     showAlert = false
                 }
             }
-            
+            Spacer()
         }
         
         
@@ -51,18 +51,14 @@ struct HomeView_Previews: PreviewProvider {
 extension HomeView{
     private var userProfileRow: some View{
         HStack{
-            AsyncImage(
-                url: URL(string: homeVM.currentUser?.avatar ?? "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"),
-                content: { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(minWidth: 30, maxWidth: 50, minHeight: 30, maxHeight: 50, alignment: .leading)
-                },
-                placeholder: {
-                    Image(systemName: "person.fill")
-                }).clipShape(Circle())
+            
+            CustomLazyImage(strUrl: "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg")
+                .frame(minWidth: 30, maxWidth: 50, minHeight: 30, maxHeight: 50, alignment: .leading)
+                .clipShape(Circle())
             Text((homeVM.currentUser?.name ?? "") + "\(homeVM.currentUser?.surname ?? "")")
+            Spacer()
         }
+        .padding(.horizontal)
     }
 }
 
