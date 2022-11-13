@@ -12,7 +12,13 @@ struct MessageView: View {
     var isSender: Bool
     
     var body: some View {
-        messageRowView
+        VStack(alignment: .leading, spacing: 10) {
+            messageRowView
+            if message.messageType == .widget{
+                WidgetFinanceView()
+                    .frame(height: getRect().height / 4.5)
+            }
+        }
     }
 }
 
