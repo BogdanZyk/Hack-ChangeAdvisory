@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WidgetFinanceView: View {
+    var isSender: Bool
     @State private var index: Int = 0
     var body: some View {
         GeometryReader { proxy in
@@ -41,30 +42,16 @@ struct WidgetFinanceView: View {
                 .padding(.bottom)
                 .hCenter()
                 .background(Color.accentBg)
-                
-                HStack(spacing: 0){
-                    Button {
-                        
-                    } label: {
-                        ZStack{
-                            Color.foreground3.opacity(0.5)
-                            Text("Отменить")
-                                .foregroundColor(.foreground)
-                        }
+                if isSender{
+                    ZStack{
+                        Color.foreground2
+                        Text("Ожидание выбора акции")
+                            .foregroundColor(.white)
                     }
-                    Button {
-                        
-                    } label: {
-                        ZStack{
-                            Color.accentColor
-                            Text("Выбрать")
-                                .foregroundColor(.white)
-                        }
-                    }
+                    .frame(height: 55)
+                }else{
+                    buttonSection
                 }
-                .font(.system(size: 16, weight: .medium))
-                
-                .frame(height: 55)
             }
             .frame(width: proxy.size.width, height: proxy.size.height)
             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -75,13 +62,40 @@ struct WidgetFinanceView: View {
 
 struct WidgetFinanceView_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetFinanceView()
+        WidgetFinanceView(isSender: true)
             .frame(height: 180)
             .padding()
         
     }
 }
 
+
+extension WidgetFinanceView{
+    private var buttonSection: some View{
+        HStack(spacing: 0){
+            Button {
+                
+            } label: {
+                ZStack{
+                    Color.foreground3.opacity(0.5)
+                    Text("Отменить")
+                        .foregroundColor(.foreground)
+                }
+            }
+            Button {
+                
+            } label: {
+                ZStack{
+                    Color.accentColor
+                    Text("Выбрать")
+                        .foregroundColor(.white)
+                }
+            }
+        }
+        .font(.system(size: 16, weight: .medium))
+        .frame(height: 55)
+    }
+}
 
 
 

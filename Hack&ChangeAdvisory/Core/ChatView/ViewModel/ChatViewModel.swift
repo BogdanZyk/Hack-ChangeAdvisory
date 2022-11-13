@@ -125,6 +125,12 @@ extension ChatViewModel{
         }
     }
     
+    func sendWidget(){
+        guard let dialogId = dialogId else {return}
+        let request = MessageRequest(message: .init(dialogId: dialogId, text: "Тoп акции на сегодня", messageType: MessageType.widget.rawValue))
+        self.sendMessageWithRequest(request: request)
+    }
+    
     private func sendMessageWithRequest(request: MessageRequest){
         chatService.sendMessage(request)
             .receive(on: DispatchQueue.main)

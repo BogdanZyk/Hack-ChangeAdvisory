@@ -143,6 +143,11 @@ extension ChatView{
 extension ChatView{
     private var comfirmContent: some View{
         Group{
+            if chatVM.chatMode == .operator{
+                Button("Отправить финансовый виджет") {
+                    chatVM.sendWidget()
+                }
+            }
             Button("Сделать фото") {
                 pickerType = .camera
                 showImagePicker = true

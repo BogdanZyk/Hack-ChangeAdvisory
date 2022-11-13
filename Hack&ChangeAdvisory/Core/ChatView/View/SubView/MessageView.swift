@@ -15,8 +15,8 @@ struct MessageView: View {
         VStack(alignment: .leading, spacing: 10) {
             messageRowView
             if message.messageType == .widget{
-                WidgetFinanceView()
-                    .frame(height: getRect().height / 4.5)
+                WidgetFinanceView(isSender: isSender)
+                    .frame(height: getRect().height / 4)
             }
         }
     }
