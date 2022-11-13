@@ -14,6 +14,10 @@ struct User: Codable{
     var surname: String?
     var name: String?
     var middleName: String?
+    
+    var fullName: String{
+        (name ?? "").capitalized + " " + (surname ?? "").capitalized
+    }
 }
 
 

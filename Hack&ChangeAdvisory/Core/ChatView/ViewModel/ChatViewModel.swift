@@ -22,7 +22,7 @@ final class ChatViewModel: ObservableObject{
     @Published var showLoader: Bool = false
     @Published var imageData: [UIImageData]?
     @Published var recipientUser: User?
-    @Published var chatMode: ChatViewMod = .client
+    @Published var chatMode: UserRole?
     
     private var dialogId: Int?
     private var cancellable = Set<AnyCancellable>()
@@ -33,7 +33,7 @@ final class ChatViewModel: ObservableObject{
         
         self.chatService = chatService
         self.userService = userService
-        self.chatMode = userManager.userRole == .operator ? .operator : .client
+        self.chatMode = userManager.userRole
         
         
         let endpoint = Endpoint.init(path: "")
@@ -176,25 +176,7 @@ extension ChatViewModel{
     
 }
 
-// MARK: Chat mode
-extension ChatViewModel{
-    
-    enum ChatViewMod: Int {
-        
-        case `operator`, client
-        
-        
-        var navigatinTitle: String{
-            switch self{
-            case .operator: return "Чат с клиентом"
-            case .client: return "Центр заботы о клиентах"
-            }
-        }
-        
-        
-       // var subTitle
-    }
-}
+
 
 extension Decodable {
     static func decode(with decoder: JSONDecoder = JSONDecoder(), from data: Data) throws -> Self? {

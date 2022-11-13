@@ -13,6 +13,7 @@ struct ChatView: View {
     @State private var showImagePicker: Bool = false
     @State private var showImageComfirmDialog: Bool = false
     @State private var showDetailsImageView: Bool = false
+    @State private var showDownScrollButton: Bool = false
     let scrollId = "BOTTOM"
     var body: some View {
         VStack(spacing: 0){
@@ -27,6 +28,9 @@ struct ChatView: View {
                         
                         emptyBottomAnhor
                     }
+                    .overlay(alignment: .bottomTrailing) {
+                        downScrollButton(scrollViewProxy: scrollViewReader)
+                    }
                     .onReceive(chatVM.$chatMessages) { _ in
                         withAnimation {
                             scrollViewReader.scrollTo(scrollId)
@@ -37,8 +41,8 @@ struct ChatView: View {
         }
         .safeAreaInset(edge: .bottom){
             ChatBottomBarView(showImageComfirmDialog: $showImageComfirmDialog)
-                .environmentObject(chatVM)
         }
+        .environmentObject(chatVM)
         .background(Color.bg)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(showDetailsImageView)
@@ -60,25 +64,9 @@ struct ChatView_Previews: PreviewProvider {
 
 // MARK: Navigation bar contetn
 
-
 extension ChatView{
     private var navigationBar: some View{
-        VStack(spacing: 5){
-            Text(chatVM.chatMode.navigatinTitle)
-                .font(.system(size: 18, weight: .bold))
-            Group{
-                if chatVM.chatMode == .client{
-                    Text("Готовы ответить на ваши воросы\nпо будням с 10.00 до 19.00 по мск")
-               }else{
-                   Text("\(chatVM.recipientUser?.name ?? "")" + "\(chatVM.recipientUser?.surname ?? "")")
-               }
-            }
-            .font(.system(size: 14, weight: .medium))
-            .foregroundColor(.foreground2)
-        }
-        .hCenter()
-        .padding(.bottom, 10)
-        .background(Color.white)
+        ChatNavigationBarView()
     }
 }
 
@@ -108,10 +96,41 @@ extension ChatView{
         LazyVStack(spacing: 0) {
             ForEach(chatVM.chatMessages){ message in
                 MessageView(message: message, isSender: UserManager.share.currentUser?.userId == message.sender)
+                    .onAppear{
+                        if message.id == chatVM.chatMessages.last?.id{
+                            showDownScrollButton = false
+                        }
+                    }
+                    .onDisappear{
+                        if message.id == chatVM.chatMessages.last?.id{
+                            showDownScrollButton = true
+                        }
+                    }
             }
             .padding(.vertical, 4)
         }
         .padding(.horizontal, 10)
+    }
+    
+    
+    private func downScrollButton(scrollViewProxy: ScrollViewProxy) -> some View{
+        Group{
+            if showDownScrollButton{
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.white)
+                    .font(.system(size: 18))
+                    .padding(10)
+                    .background(Color.foreground3)
+                    .clipShape(Circle())
+                    .padding(.trailing, 10)
+                    .padding(.bottom, 20)
+                    .onTapGesture {
+                        withAnimation {
+                            scrollViewProxy.scrollTo(scrollId)
+                        }
+                    }
+            }
+        }
     }
 }
 

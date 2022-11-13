@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A19D1C729207293007A82A6 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19D1C629207293007A82A6 /* Date.swift */; };
+		5A19D1C929208816007A82A6 /* ChatNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19D1C829208816007A82A6 /* ChatNavigationBarView.swift */; };
 		5A5E8F2B291EFDDD002F3395 /* Hack_ChangeAdvisoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F2A291EFDDD002F3395 /* Hack_ChangeAdvisoryApp.swift */; };
 		5A5E8F2D291EFDDD002F3395 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E8F2C291EFDDD002F3395 /* ContentView.swift */; };
 		5A5E8F2F291EFDDE002F3395 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5E8F2E291EFDDE002F3395 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		5A19D1C629207293007A82A6 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		5A19D1C829208816007A82A6 /* ChatNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationBarView.swift; sourceTree = "<group>"; };
 		5A5E8F27291EFDDD002F3395 /* Hack&ChangeAdvisory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack&ChangeAdvisory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5E8F2A291EFDDD002F3395 /* Hack_ChangeAdvisoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hack_ChangeAdvisoryApp.swift; sourceTree = "<group>"; };
 		5A5E8F2C291EFDDD002F3395 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				5A5E8F71291FADE4002F3395 /* ReversedSrollView.swift */,
 				5A5E8F76291FB117002F3395 /* MessageView.swift */,
 				5A6F38DF2920547B00569A3B /* ChatBottomBarView.swift */,
+				5A19D1C829208816007A82A6 /* ChatNavigationBarView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				5A5E8F72291FADE4002F3395 /* ReversedSrollView.swift in Sources */,
 				5A5E8F52291F11FD002F3395 /* LoginView.swift in Sources */,
 				5A6F38E02920547B00569A3B /* ChatBottomBarView.swift in Sources */,
+				5A19D1C929208816007A82A6 /* ChatNavigationBarView.swift in Sources */,
 				5A5E8F79291FB1FD002F3395 /* Message.swift in Sources */,
 				5A5E8F42291F0136002F3395 /* NetworkControllerProtocol.swift in Sources */,
 				5A5E8F49291F09D4002F3395 /* Endpoint.swift in Sources */,
