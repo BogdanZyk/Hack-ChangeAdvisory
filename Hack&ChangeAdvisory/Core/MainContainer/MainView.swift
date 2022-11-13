@@ -12,14 +12,24 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $currentTab) {
             HomeView()
-                .tabItem{Text("home")}
+                .tabItem{
+                    VStack{
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                }
                 .tag(Tab.home)
             
             NavigationView {
                 ChatView()
                 
             }
-            .tabItem{Text("chat")}
+            .tabItem{
+                VStack{
+                    Image(systemName: "text.bubble.fill")
+                    Text("Chat")
+                }
+            }
             .tag(Tab.chat)
         }
         .background(Color.bg)

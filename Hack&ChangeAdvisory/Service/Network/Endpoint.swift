@@ -67,6 +67,10 @@ extension Endpoint {
                                      URLQueryItem(name: "dialogId", value: "\(dialogId)")])
     }
     
+    static var udateDataWidget: Self{
+        return Endpoint(path: "/chat/message/update")
+    }
+    
     static var dialog: Self{
         return Endpoint(path: "/chat/dialog")
     }

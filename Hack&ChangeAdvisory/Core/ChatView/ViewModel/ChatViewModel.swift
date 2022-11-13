@@ -57,10 +57,12 @@ extension ChatViewModel{
                 for try await message in webSoketStream {
                     switch message{
                     case .string(let message):
+                        print(message)
                         guard let data = message.data(using: .utf8) else {return}
                         guard let serverData = try? SocketMessageModel.decode(from: data) else {return}
+                        
                         DispatchQueue.main.async {
-                            self.chatMessages.append(serverData.messageData)
+                            self.udateMessages(serverData.messageData)
                         }
                     default:
                         break
@@ -69,6 +71,14 @@ extension ChatViewModel{
             } catch {
                 debugPrint("Oops something didn't go right")
             }
+        }
+    }
+    
+    private func udateMessages(_ message: Message){
+        if let index = chatMessages.firstIndex(where: {$0.messageId == message.messageId}){
+            chatMessages[index] = message
+        }else{
+            self.chatMessages.append(message)
         }
     }
 }
@@ -125,11 +135,7 @@ extension ChatViewModel{
         }
     }
     
-    func sendWidget(){
-        guard let dialogId = dialogId else {return}
-        let request = MessageRequest(message: .init(dialogId: dialogId, text: "Тoп акции на сегодня", messageType: MessageType.widget.rawValue))
-        self.sendMessageWithRequest(request: request)
-    }
+
     
     private func sendMessageWithRequest(request: MessageRequest){
         chatService.sendMessage(request)
@@ -164,6 +170,33 @@ extension ChatViewModel{
     }
 }
 
+
+// MARK: Widget API network logic
+
+extension ChatViewModel{
+    
+    
+    func sendWidget(){
+        guard let dialogId = dialogId else {return}
+        /// mock data
+        let request = MessageRequest(message: .init(dialogId: dialogId, text: "Тoп акции на сегодня", messageType: MessageType.widget.rawValue))
+        self.sendMessageWithRequest(request: request)
+    }
+    
+    func updateWidgetData(_ messageId: String, promotionName: String?){
+        
+        guard let jsonStrData = ["promotionName": promotionName ?? "no select"].jsonStringRepresentation else {return}
+        let params = UpdateDataWidgetRequest(messageId: messageId, data: jsonStrData)
+        chatService.updateDataWidget(params)
+            .sink(receiveCompletion: { completion in
+                NetworkController.share.handlingCompletion(completion: completion)
+            }, receiveValue: { _ in
+            })
+            .store(in: &cancellable)
+    }
+}
+
+
 // MARK: Helpers
 extension ChatViewModel{
     
@@ -193,5 +226,16 @@ extension Decodable {
             print("decodable model error", error.localizedDescription)
             return nil
         }
+    }
+}
+
+extension Dictionary {
+    var jsonStringRepresentation: String? {
+        guard let theJSONData = try? JSONSerialization.data(withJSONObject: self,
+                                                            options: [.prettyPrinted]) else {
+            return nil
+        }
+
+        return String(data: theJSONData, encoding: .ascii)
     }
 }

@@ -16,7 +16,8 @@ protocol ChatServiceProtocol: AnyObject{
     func getDialogHistoryForId(_ dialogId: Int) -> AnyPublisher<MessageResponse, Error>
     
     func sendMessage(_ params: MessageRequest) -> AnyPublisher<SendMessageResponse, Error>
-    
+ 
+    func updateDataWidget(_ params: UpdateDataWidgetRequest) -> AnyPublisher<Data, Error>
 }
 
 
@@ -50,6 +51,19 @@ final class ChatService: ChatServiceProtocol{
         request.allHTTPHeaderFields = Endpoint.buildHeaders()
         request.httpBody = postData
         return networkManager.get(type: SendMessageResponse.self, urlRequest: request)
+    }
+    
+    func updateDataWidget(_ params: UpdateDataWidgetRequest) -> AnyPublisher<Data, Error>{
+        guard let postData = try? JSONEncoder().encode(params) else {
+           print("Error encode model")
+            return Fail(error: NetworkingError.unknow).eraseToAnyPublisher()
+        }
+        let endpoint = Endpoint.udateDataWidget
+        var request = URLRequest(url: endpoint.url)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = Endpoint.buildHeaders()
+        request.httpBody = postData
+        return networkManager.update(urlRequest: request)
     }
 }
 

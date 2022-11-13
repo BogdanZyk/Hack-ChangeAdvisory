@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MessageView: View {
+    @EnvironmentObject var chatVM: ChatViewModel
     let message: Message
     var isSender: Bool
     
@@ -15,7 +16,7 @@ struct MessageView: View {
         VStack(alignment: .leading, spacing: 10) {
             messageRowView
             if message.messageType == .widget{
-                WidgetFinanceView(isSender: isSender)
+                WidgetFinanceView(message: message, isSender: isSender)
                     .frame(height: getRect().height / 4)
             }
         }
@@ -29,6 +30,7 @@ struct MessageView_Previews: PreviewProvider {
             MessageView(message: Mocks.messages.first!, isSender: false)
         }
         .padding()
+        .environmentObject(ChatViewModel())
     }
 }
 

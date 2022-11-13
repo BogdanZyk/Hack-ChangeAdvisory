@@ -47,6 +47,7 @@
 		5A6F38E02920547B00569A3B /* ChatBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F38DF2920547B00569A3B /* ChatBottomBarView.swift */; };
 		5A6F38E2292062B300569A3B /* CustomLazyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F38E1292062B300569A3B /* CustomLazyImage.swift */; };
 		5ACE648329209C2600B6F8C0 /* ChatActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE648229209C2600B6F8C0 /* ChatActionSheetView.swift */; };
+		5ACE64872920ED6F00B6F8C0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE64862920ED6F00B6F8C0 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		5A6F38DF2920547B00569A3B /* ChatBottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBottomBarView.swift; sourceTree = "<group>"; };
 		5A6F38E1292062B300569A3B /* CustomLazyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLazyImage.swift; sourceTree = "<group>"; };
 		5ACE648229209C2600B6F8C0 /* ChatActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatActionSheetView.swift; sourceTree = "<group>"; };
+		5ACE64862920ED6F00B6F8C0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		5A5E8F3D291EFF04002F3395 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5ACE64852920ED5F00B6F8C0 /* Helpers */,
 				5A6F38D829203EFF00569A3B /* ImageUploader.swift */,
 				5A5E8F4D291F1160002F3395 /* Extensions */,
 				5A6F38DD29204E5C00569A3B /* CameraPicker.swift */,
@@ -342,6 +345,14 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		5ACE64852920ED5F00B6F8C0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5ACE64862920ED6F00B6F8C0 /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,6 +441,7 @@
 				5A5E8F69291F2BC5002F3395 /* MainView.swift in Sources */,
 				5A5E8F5B291F1B1F002F3395 /* View.swift in Sources */,
 				5A5E8F55291F1944002F3395 /* PrimaryTextField.swift in Sources */,
+				5ACE64872920ED6F00B6F8C0 /* Helpers.swift in Sources */,
 				5A5E8F77291FB117002F3395 /* MessageView.swift in Sources */,
 				5A5E8F7C291FB668002F3395 /* Mocks.swift in Sources */,
 				5A5E8F7F291FC2EF002F3395 /* ChatService.swift in Sources */,

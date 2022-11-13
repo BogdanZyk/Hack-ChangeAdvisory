@@ -69,6 +69,11 @@ struct SendMessageResponse: Codable{
     let messageId: String
 }
 
+struct UpdateDataWidgetRequest: Codable{
+    let messageId: String
+    let data: String
+}
+
 struct DialogIdResponse: Codable{
     var dialogId: Int
 }
